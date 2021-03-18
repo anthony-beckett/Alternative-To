@@ -1,5 +1,5 @@
 /*
- *  'Alternative to Alternative To' Copyright (C) 2021 Anthony Beckett
+ *  'Alternative to Alternative To (name subject to change)' Copyright (C) 2021 Anthony Beckett
  *
  *  This program is free software: you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License as published by
@@ -15,13 +15,16 @@
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+
 #include <json-c/json.h>
 #include <curl/curl.h> 
 #include <lexbor/html/parser.h>
 #include <stdio.h>
 #include <stdlib.h>
 
+
 #define TMP_PATH "/tmp/curl_results.html"
+
 
 int
 check_file(char file[])
@@ -35,7 +38,7 @@ check_file(char file[])
 }
 
 
-int
+char
 get_results(char url[], char path[])
 {
 	CURL* curl = curl_easy_init();
@@ -65,7 +68,7 @@ main(int argc, char* argv[])
 	char full_url[35 + arg_len];
 	static const char PATH[19] = "/tmp/alternativeto/";
 	char full_path[19 + arg_len];
-	int page;
+	char page;
 
 	snprintf(full_url, sizeof(full_url) + 2, "%s%s/", URL, argv[1]);
 	snprintf(full_path, sizeof(full_path) + 1, "%s%s", PATH, argv[1]);
